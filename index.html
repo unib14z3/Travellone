@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TravelOne – Plan. Book. Explore. Experience.</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#EAF4F2;--surface:#fff;--ink:#10242A;--muted:#4B6168;--lagoon:#0E5560;--sun:#FFB627;--coral:#F2553F;--line:#C9DDD9;--onlagoon:#EAF4F2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1A1E;--surface:#12282D;--ink:#E8F2F0;--muted:#9FB6BB;--lagoon:#58C2CF;--line:#24424A;--onlagoon:#0B1A1E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B1A1E;--surface:#12282D;--ink:#E8F2F0;--muted:#9FB6BB;--lagoon:#58C2CF;--line:#24424A;--onlagoon:#0B1A1E;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;line-height:1.08;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:800;max-width:18ch}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}
+section{padding:4.5rem 0}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0}
+.logo{font:800 1.4rem "Bricolage Grotesque",sans-serif;text-decoration:none}
+.logo span{color:var(--coral)}
+.btn{display:inline-block;background:var(--coral);color:#fff;font-weight:600;text-decoration:none;padding:.85rem 1.5rem;border-radius:999px}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding:2.5rem 0 5rem}
+.hero h1{font-size:clamp(2.6rem,6.5vw,5rem);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--lagoon)}
+.hero p.lead{margin:1.4rem 0 2rem;max-width:46ch;color:var(--muted);font-size:1.2rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+/* trip ticket */
+.ticket{background:var(--surface);border:2px solid var(--ink);border-radius:22px;box-shadow:8px 8px 0 var(--sun);overflow:hidden;transform:rotate(1.5deg)}
+.ticket header{background:var(--lagoon);color:var(--onlagoon);padding:1.1rem 1.4rem;display:flex;justify-content:space-between;align-items:baseline}
+.ticket header strong{font:800 1.5rem "Bricolage Grotesque",sans-serif}
+.ticket .meta{padding:.8rem 1.4rem;border-bottom:2px dashed var(--line);font-size:.95rem;color:var(--muted)}
+.days{list-style:none;margin:0;padding:.4rem 1.4rem}
+.days li{display:grid;grid-template-columns:3.2rem 1fr auto;gap:.8rem;padding:.7rem 0;border-bottom:1px solid var(--line);align-items:center}
+.days li:last-child{border:0}
+.days b{font:700 .95rem "Bricolage Grotesque",sans-serif;color:var(--coral)}
+.days span.c{font-weight:600}
+.days small{color:var(--muted)}
+.budget{padding:1rem 1.4rem 1.3rem;border-top:2px dashed var(--line)}
+.budget div.row{display:flex;justify-content:space-between;font-weight:600;margin-bottom:.5rem}
+.bar{height:12px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:92%;background:var(--sun);border-radius:99px;animation:fill 1.6s .3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes fill{from{width:0}}
+.budget small{display:block;margin-top:.5rem;color:var(--muted)}
+/* problem band */
+.band{background:var(--lagoon);color:var(--onlagoon)}
+.band .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.band p{font-size:1.2rem;max-width:48ch}
+.apps{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.apps span{border:2px solid currentColor;border-radius:999px;padding:.3rem .9rem;font-weight:500}
+/* steps */
+.steps{list-style:none;counter-reset:s;margin:2.5rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.steps li{counter-increment:s;background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:1.4rem}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--sun);color:#10242A;font:800 1rem "Bricolage Grotesque",sans-serif;margin-bottom:.8rem}
+.steps h3{font-size:1.25rem;margin-bottom:.4rem}
+.steps p{color:var(--muted)}
+/* features */
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:2.5rem;border-top:2px solid var(--ink)}
+.feat div{padding:1.6rem 1.6rem 1.6rem 0;border-bottom:1px solid var(--line)}
+.feat div:nth-child(even){padding-left:1.6rem;border-left:1px solid var(--line)}
+.feat h3{font-size:1.3rem;margin-bottom:.3rem}
+.feat p{color:var(--muted);max-width:44ch}
+/* locals */
+.locals{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.locals article{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:2rem}
+.locals article:last-child{background:var(--sun);color:#10242A;border-color:#10242A}
+.locals h3{font-size:1.6rem;margin-bottom:.8rem}
+.locals ul{margin:0;padding-left:1.2rem}
+.locals li{margin:.35rem 0}
+.final{text-align:center;padding:5rem 0}
+.final h2{margin:0 auto 1.2rem;max-width:16ch}
+.final p{color:var(--muted);margin-bottom:2rem}
+footer{border-top:1px solid var(--line);padding:1.5rem 0;color:var(--muted);font-size:.95rem}
+@media (max-width:860px){
+.hero,.band .wrap,.locals{grid-template-columns:1fr}
+.steps{grid-template-columns:1fr}
+.feat{grid-template-columns:1fr}
+.feat div:nth-child(even){padding-left:0;border-left:0}
+.ticket{transform:none}
+section{padding:3.2rem 0}
+}
+@media (prefers-reduced-motion:reduce){.bar i{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="logo" href="#top">Travel<span>One</span></a><a class="btn" href="#join">Join the waitlist</a></nav>
+<main id="top">
+<div class="hero">
+<div>
+<h1>Your whole trip, <em>one app.</em></h1>
+<p class="lead">Tell TravelOne where you want to go, how many days you have and what you can spend. AI builds your itinerary, and you book stays, rides, food and activities without switching apps.</p>
+<div class="cta"><a class="btn" href="#join">Plan my trip</a><a class="btn ghost" href="#how">See how it works</a></div>
+</div>
+<aside class="ticket" aria-label="Sample itinerary">
+<header><strong>Goa</strong><span>4 days · Friends</span></header>
+<div class="meta">Beaches + adventure · Budget ₹15,000</div>
+<ul class="days">
+<li><b>Day 1</b><span class="c">Baga beach and sunset shack dinner</span><small>₹2,800</small></li>
+<li><b>Day 2</b><span class="c">Water sports and Anjuna flea market</span><small>₹4,100</small></li>
+<li><b>Day 3</b><span class="c">Dudhsagar trek with a local guide</span><small>₹3,600</small></li>
+<li><b>Day 4</b><span class="c">Old Goa, café brunch, departure</span><small>₹2,400</small></li>
+</ul>
+<div class="budget"><div class="row"><span>Estimated total</span><span>₹12,900</span></div><div class="bar" role="img" aria-label="86 percent of budget used"><i></i></div><small>₹2,100 left for souvenirs</small></div>
+</aside>
+</div>
+</main>
+</div>
+
+<section class="band" aria-labelledby="prob"><div class="wrap">
+<h2 id="prob">Planning a trip shouldn’t take ten tabs.</h2>
+<div><p>Hotels in one app, trains in another, food reviews somewhere else, and a guide you find through a friend of a friend. TravelOne puts it in one place and keeps it inside your budget.</p>
+<div class="apps"><span>Hotels</span><span>Transport</span><span>Food</span><span>Attractions</span><span>Guides</span><span>Activities</span></div></div>
+</div></section>
+
+<section id="how"><div class="wrap">
+<h2>From idea to itinerary in three steps</h2>
+<ol class="steps">
+<li><h3>Tell us the basics</h3><p>Destination, budget, number of days and what you enjoy.</p></li>
+<li><h3>Get your day-wise plan</h3><p>AI suggests stays, transport, food and activities with estimated costs.</p></li>
+<li><h3>Book and go</h3><p>Pay in the app, then use maps, reviews and your itinerary on the trip. Review afterwards to earn rewards.</p></li>
+</ol>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<h2>Built for how young travelers plan</h2>
+<div class="feat">
+<div><h3>Budget-aware AI</h3><p>Every suggestion respects the amount you set, so you see costs before you commit.</p></div>
+<div><h3>One-place booking</h3><p>Stays, transport, food, guides and activities in a single checkout.</p></div>
+<div><h3>Local experiences</h3><p>Homestays, artisans and guides you won’t find on the big booking sites.</p></div>
+<div><h3>Offline-friendly itinerary</h3><p>Maps, reviews and your plan stay with you during the trip.</p></div>
+</div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap locals">
+<article><h3>For travelers</h3><ul><li>Students and early-career professionals, 18-30</li><li>Friends, couples, families and solo trips</li><li>Rewards and referral credits for every trip</li></ul></article>
+<article><h3>For local businesses</h3><ul><li>Hotels, homestays and resorts</li><li>Restaurants, guides and activity providers</li><li>Shops, artisans and transport operators</li></ul><p style="margin-top:1rem;font-weight:600">Reach tourists without building your own app.</p></article>
+</div></section>
+
+<section class="final" id="join"><div class="wrap">
+<h2>Plan. Book. Explore. Experience.</h2>
+<p>Be among the first to try TravelOne.</p>
+<a class="btn" href="#top">Join the waitlist</a>
+</div></section>
+
+<footer><div class="wrap">TravelOne – an integrated smart tourism super-app. Entrepreneurial Skills (ES) Project.</div></footer>
+</body>
+</html>
